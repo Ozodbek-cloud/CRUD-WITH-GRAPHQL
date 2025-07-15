@@ -19,13 +19,6 @@ export class UsersService {
       return all
     }
 
-    async post_user(payload: CreateUserInput) {
-        let full = await this.prismaService.user.create({
-            data: payload,
-        });
-        return full
-
-    }
 
     async delete_user(id: number) {
         let deleted  = await this.prismaService.user.delete({

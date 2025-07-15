@@ -6,6 +6,7 @@ import { UsersModule } from './modules/users/users.module';
 import { join } from 'path';
 import { PrismaModule } from './core/pirsma/database.module';
 import { PostsModule } from './modules/posts/posts.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -13,6 +14,6 @@ import { PostsModule } from './modules/posts/posts.module';
     graphiql: true,
     playground: true,
     autoSchemaFile: join(process.cwd(), "src/schema.gql")
-  }),PrismaModule, ConfigModule, UsersModule, PostsModule],
+  }),PrismaModule, ConfigModule, UsersModule, PostsModule, AuthModule],
 })
 export class AppModule {}

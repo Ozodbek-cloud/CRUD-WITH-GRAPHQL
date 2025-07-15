@@ -1,4 +1,5 @@
-import { Field, InputType, PartialType} from "@nestjs/graphql";
+import { Field, InputType, ObjectType, PartialType} from "@nestjs/graphql";
+import { UserRole } from "@prisma/client";
  
 
 
@@ -9,6 +10,12 @@ export class CreateUserInput {
 
     @Field()
     email: string;
+
+    @Field()
+    password: string
+
+    @Field()
+    role: UserRole
 
 }
 

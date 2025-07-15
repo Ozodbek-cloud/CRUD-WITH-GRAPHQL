@@ -6,6 +6,8 @@ type User {
   id: Int!
   name: String
   email: String
+  password: String
+  role: String
 }
 
 type Post {
@@ -16,29 +18,26 @@ type Post {
 }
 
 type Query {
-  getUser: User!
+  getUser(id: Float!): User!
   getUserAll: [User!]!
   findAllPosts: [Post!]!
   findPost(id: Int!): Post!
 }
 
 type Mutation {
-  CreateUser(payload: CreateUserInput!): User!
   DeleteUser(id: Float!): User!
   updateUser(id: Int!, payload: UpdateUserInput!): User!
   createPost(data: CreatePostInput!): Post!
   updatePost(id: Int!, data: UpdatePostInput!): Post!
   removePost(id: Int!): Post!
-}
-
-input CreateUserInput {
-  name: String!
-  email: String!
+  CreateUser(payload: CreateUserInput!): User!
 }
 
 input UpdateUserInput {
   name: String!
   email: String!
+  password: String
+  role: String
 }
 
 input CreatePostInput {
@@ -51,4 +50,11 @@ input UpdatePostInput {
   title: String!
   body: String!
   userid: Float
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  role: String!
 }

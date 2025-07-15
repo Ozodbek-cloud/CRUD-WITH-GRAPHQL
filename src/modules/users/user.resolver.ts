@@ -17,10 +17,6 @@ export class UserResolver {
         return this.userService.getUserAll()
     }
 
-    @Mutation(() => User)
-    CreateUser(@Args('payload') payload: CreateUserInput) {
-        return this.userService.post_user(payload);
-    }
 
     @Mutation(() => User)
     DeleteUser(@Args('id') id: number) {

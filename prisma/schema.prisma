@@ -6,12 +6,20 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+enum UserRole {
+  ADMIN
+  SUPERADMIN
+  USER
+}
 
 model User {
   id    Int    @id @default(autoincrement())
   name  String
   email String
+  password String
+  role UserRole @default(USER)
   posts Post[] 
+   
   @@map("users")
 }
 
